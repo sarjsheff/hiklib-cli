@@ -1,0 +1,29 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+
+    - name: Build
+      run: |
+        wget https://sheff.online/EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
+        tar -zxf EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
+        mv EN-HCNetSDKV6.1.9.48_build20230410_linux64 /hiksdk
+        LD_LIBRARY_PATH="/hiksdk/lib" CGO_CXXFLAGS="-I/hiksdk/incEn/" CGO_LDFLAGS="-L/hiksdk/lib -lhcnetsdk" go build cmd/hiklib-cli/hiklib-cli.go
