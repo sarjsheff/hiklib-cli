@@ -36,4 +36,4 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: hiklib-cli-$GITHUB_REF_NAME.tag.gz
+        files: hiklib-cli-${{ env.GITHUB_REF_NAME }}.tag.gz
