@@ -24,6 +24,6 @@ jobs:
     - name: Build
       run: |
         wget https://sheff.online/EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
-        tar -zxf EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
+        unzip EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
         mv EN-HCNetSDKV6.1.9.48_build20230410_linux64 /hiksdk
         LD_LIBRARY_PATH="/hiksdk/lib" CGO_CXXFLAGS="-I/hiksdk/incEn/" CGO_LDFLAGS="-L/hiksdk/lib -lhcnetsdk" go build cmd/hiklib-cli/hiklib-cli.go
