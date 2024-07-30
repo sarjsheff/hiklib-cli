@@ -26,7 +26,8 @@ jobs:
         unzip EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
         mv EN-HCNetSDKV6.1.9.48_build20230410_linux64 hiksdk
         go build cmd/hiklib-cli/hiklib-cli.go
-        tar -zcf hiklib-cli-${GITHUB_REF_NAME}.tar.gz hiklib-cli
+        tar -zcf hiklib-cli-$GITHUB_REF_NAME.tar.gz hiklib-cli
+        ls
       env:
         LD_LIBRARY_PATH: "/home/runner/work/hiklib-cli/hiklib-cli/hiksdk/lib" 
         CGO_CXXFLAGS: "-I/home/runner/work/hiklib-cli/hiklib-cli/hiksdk/incEn/" 
