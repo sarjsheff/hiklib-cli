@@ -26,4 +26,8 @@ jobs:
         wget https://sheff.online/EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
         unzip EN-HCNetSDKV6.1.9.48_build20230410_linux64.zip
         mv EN-HCNetSDKV6.1.9.48_build20230410_linux64 hiksdk
-        LD_LIBRARY_PATH="hiksdk/lib" CGO_CXXFLAGS="-Ihiksdk/incEn/" CGO_LDFLAGS="-Lhiksdk/lib -lhcnetsdk" go build cmd/hiklib-cli/hiklib-cli.go
+        go build cmd/hiklib-cli/hiklib-cli.go
+      env:
+        LD_LIBRARY_PATH: "hiksdk/lib" 
+        CGO_CXXFLAGS: "-Ihiksdk/incEn/" 
+        CGO_LDFLAGS: "-Lhiksdk/lib -lhcnetsdk" 
