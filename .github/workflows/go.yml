@@ -33,6 +33,6 @@ jobs:
         echo $CGO_LDFLAGS
         go build cmd/hiklib-cli/hiklib-cli.go
       env:
-        LD_LIBRARY_PATH: "hiksdk/lib" 
-        CGO_CXXFLAGS: "-Ihiksdk/incEn/" 
-        CGO_LDFLAGS: "-Lhiksdk/lib -lhcnetsdk" 
+        LD_LIBRARY_PATH: "/home/runner/work/hiklib-cli/hiklib-cli/hiksdk/lib" 
+        CGO_CXXFLAGS: "-I/home/runner/work/hiklib-cli/hiklib-cli/hiksdk/incEn/" 
+        CGO_LDFLAGS: "-L/home/runner/work/hiklib-cli/hiklib-cli/hiksdk/lib -lhcnetsdk" 
